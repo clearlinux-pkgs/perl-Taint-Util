@@ -4,7 +4,7 @@
 #
 Name     : perl-Taint-Util
 Version  : 0.08
-Release  : 2
+Release  : 3
 URL      : https://cpan.metacpan.org/authors/id/A/AV/AVAR/Taint-Util-0.08.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AV/AVAR/Taint-Util-0.08.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libt/libtaint-util-perl/libtaint-util-perl_0.08-3.debian.tar.xz
@@ -90,7 +90,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/Taint/Util.pm
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Taint/Util.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -98,7 +98,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/x86_64-linux-thread-multi/auto/Taint/Util/Util.so
+/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/Taint/Util/Util.so
 
 %files license
 %defattr(0644,root,root,0755)
