@@ -1,47 +1,57 @@
-libtaint-util-perl (0.08-3) unstable; urgency=medium
+2010-03-17  Ævar Arnfjörð Bjarmason  <avar@cpan.org> (0.08)
 
-  * Team upload.
+	* META.yml: RT#55666: Don't depend on Taint::Util, resolves a
+	circular dependency
 
-  [ Salvatore Bonaccorso ]
-  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
-  * Change search.cpan.org based URIs to metacpan.org based URIs
+2010-03-12  Ævar Arnfjörð Bjarmason  <avar@cpan.org> (0.07)
 
-  [ gregor herrmann ]
-  * Strip trailing slash from metacpan URLs.
+	* Util.pm: A new POD section titled "About tainting in Perl"
+	inspired by RT#53988. Grammar fixes by Chris Nehren
+	* t/usage.t: Skip the qr// test known to fail on <5.6.2
+	* t/usage.t: Test for $code and $code->() taintedness
+	* Makefile.PL: Removed in the repository in favour of
+	Dist::Zilla. This has no effect on users since Dist::Zilla is a
+	distro compiler and not a build system.
 
-  [ Salvatore Bonaccorso ]
-  * Update Vcs-Browser URL to cgit web frontend
-  * debian/control: Use HTTPS transport protocol for Vcs-Git URI
+2008-01-25  Ævar Arnfjörð Bjarmason  <avar@cpan.org> (0.06)
 
-  [ gregor herrmann ]
-  * debian/copyright: change Copyright-Format 1.0 URL to HTTPS.
+	* Util.xs: Don't attempt to taint constants, it doesn't work and
+	this fixes a bug on tainting hash keys in older perls
+	* Util.pm: Use my own import routine instead of Exporter.pm, works
+	on 5.6 now
+	* Makefile.PL: Using EU::MM instead of M::I
+	* t/export.t: Test importing a lot better
+	* t/usage.t: Update tests for changes in Util.xs
 
-  [ Salvatore Bonaccorso ]
-  * Update Vcs-* headers for switch to salsa.debian.org
+2007-05-09 Ævar Arnfjörð Bjarmason <avar@cpan.org> (0.05)
 
-  [ Niko Tyni ]
-  * Update to debhelper compat level 10
-  * Update to Standards-Version 4.1.3
-  * Declare that the package does not need (fake)root to build
-  * Add Testsuite declaration for autopkgtest-pkg-perl
+	* t/reftaint.t: Specify how many tests are planned
+	* Util.pm: Don't inherit from Exporter
+	* Util.pm: POD: "used by perl" => "used by perl internally"
 
- -- Niko Tyni <ntyni@debian.org>  Fri, 30 Mar 2018 11:57:19 +0300
+2007-03-21 Ævar Arnfjörð Bjarmason <avar@cpan.org> (0.04)
 
-libtaint-util-perl (0.08-2) unstable; urgency=low
+	* t/usage.t: Test for qr// taintness
+	* t/reftaint.t: Test tainting of stringified objects
+	* Util.pm: Section in taint/untaint explaining qr// and taintness
+  	of stringified objects
+	* Util.pm: Minor rewording in POD
+	* ChangeLog: s/Usage\.(pm|xs)/Util.$1/g
 
-  * Take over for the Debian Perl Group on maintainer's request
-    (http://bugs.debian.org/677732#10)
-  * Update source format to 3.0 (quilt)
-  * Remove README from Debian docs
-  * Bump Standards-Version to 3.9.4
-  * Bump debhelper compatibility to 9 to get all hardening flags
-  * Update description
-  * Update debian/copyright format
+2007-03-17 Ævar Arnfjörð Bjarmason <avar@cpan.org> (0.03)
 
- -- Xavier Guimard <x.guimard@free.fr>  Fri, 28 Dec 2012 22:53:40 +0100
+	* t/usage.t: A lot more tests
+	* t/prototype.t: New tests for prototypes
+	* Util.xs: Support multiple arguments to taint/untaint
+	* Util.pm: Expanded a lot on the documentation
 
-libtaint-util-perl (0.08-1) unstable; urgency=low
+2007-03-14 Ævar Arnfjörð Bjarmason <avar@cpan.org> (0.02)
 
-  * Initial Release (closes: Bug#575984).
+	* Util.pm: Re-worded and added to the POD
+	* ChangeLog: Added a changelog file
+	* Makefile.PL: Explicitly get version from Util.pm
 
- -- Ivan Kohler <ivan-debian@420.am>  Tue, 30 Mar 2010 21:01:03 -0700
+2007-03-14 Ævar Arnfjörð Bjarmason <avar@cpan.org> (0.01)
+
+	* Initial release
+
